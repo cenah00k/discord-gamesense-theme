@@ -1,0 +1,984 @@
+/**
+ * @name GameSense Discord Theme
+ * @description A theme made for the gamesense community. Updated and fixed for modern Discord updates and Visual Refresh.
+ * @author Shaxzy (Updated & Fixed)
+ * @version 2.0.1
+ * @website https://github.com/cenah00k/discord-gamesense-theme
+ * @source https://raw.githubusercontent.com/cenah00k/discord-gamesense-theme/main/gamesense.theme.css
+ */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *     _____                          _____                            * 
+ *    |  __ \                        /  ___|                           *
+ *    | |  \/  __ _  _ __ ___    ___ \ `--.   ___  _ __   ___   ___    *
+ *    | | __  / _` || '_ ` _ \  / _ \ `--. \ / _ \| '_ \ / __| / _ \   *
+ *    | |_\ \| (_| || | | | | ||  __//\__/ /|  __/| | | |\__ \|  __/   *
+ *     \____/ \__,_||_| |_| |_| \___|\____/  \___||_| |_||___/ \___|   *
+ *                                                                     *
+ *                        Get Good, Get Gamesense.                     *
+ *                    un-official gamesense.pub theme.                 *
+ *                                By Shaxzy                            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&display=swap');
+
+/* ====================================================================
+   1. ROOT VARIABLES & DISCORD TOKEN OVERRIDES
+   ==================================================================== */
+:root,
+.theme-dark,
+.theme-light,
+html,
+body {
+    /* --- GameSense Original Palette --- */
+    --title-gradient: linear-gradient(to right, #37b1da 0%, #c948cd 50%, #cce335 100%);
+    --primary-color: #75a00d;
+    --primary-color-hover: #86b513;
+    --primary-color-active: #668c0b;
+    --outline-color: #0a0a0a;
+    --outline-lightcolor: #303030;
+    --app-color: #111111;
+    --channels-color: #111111;
+    --channels-darker: #0c0c0c;
+    --channels-selected: #191919;
+    --channels-text-selected: #9fca2b;
+    --chat-color: #1a1a1a;
+    --mention-color: #1f1f1f;
+    --scrollbar-bg: #2d2d2d;
+    --scrollbar-thumb: #414141;
+    --scrollbar-thumb-hover: #525252;
+    --text-input: #191919;
+    --dropdown-color: #232323;
+    --link-color: #96c83c;
+    --channel-radius: 4px;
+    --text-color: #cbcbcb;
+    --text-darker: #b0b0b0;
+    --font: 'Verdana', 'Tahoma', Helvetica, Arial, sans-serif;
+    --font-code: 'Consolas', 'Courier New', monospace;
+    --important-notification-l: #f84747;
+    --important-notification: #d12020;
+
+    /* --- Discord Core Background Tokens (Classic) --- */
+    --background-primary: var(--chat-color) !important;
+    --background-secondary: var(--channels-color) !important;
+    --background-secondary-alt: #161616 !important;
+    --background-tertiary: var(--channels-darker) !important;
+    --background-accent: var(--dropdown-color) !important;
+    --background-floating: #141414 !important;
+    --background-mobile-primary: var(--chat-color) !important;
+    --background-mobile-secondary: var(--channels-color) !important;
+    --background-modifier-hover: rgba(255, 255, 255, 0.04) !important;
+    --background-modifier-active: rgba(255, 255, 255, 0.07) !important;
+    --background-modifier-selected: var(--channels-selected) !important;
+    --background-modifier-accent: rgba(255, 255, 255, 0.05) !important;
+
+    /* --- Discord Visual Refresh Background Tokens (Modern Discord) --- */
+    --bg-base-primary: var(--chat-color) !important;
+    --bg-base-secondary: var(--channels-color) !important;
+    --bg-base-tertiary: var(--channels-darker) !important;
+    --bg-base-lowest: #080808 !important;
+    --bg-base-lower: var(--channels-darker) !important;
+    --bg-base-low: var(--channels-color) !important;
+    --background-base-lowest: #080808 !important;
+    --background-base-lower: var(--channels-darker) !important;
+    --background-base-low: var(--channels-color) !important;
+    --bg-surface-raised: #181818 !important;
+    --bg-surface-overlay: #141414 !important;
+    --bg-mod-subtle: rgba(255, 255, 255, 0.03) !important;
+    --bg-mod-normal: rgba(255, 255, 255, 0.05) !important;
+    --bg-mod-hover: rgba(255, 255, 255, 0.08) !important;
+    --bg-mod-active: rgba(255, 255, 255, 0.12) !important;
+    --bg-mod-selected: rgba(117, 160, 13, 0.18) !important;
+    --bg-brand: var(--primary-color) !important;
+    --background-surface-high: #191919 !important;
+    --background-surface-higher: #202020 !important;
+    --background-surface-highest: #282828 !important;
+    --chat-background-default: var(--chat-color) !important;
+    --chat-background: var(--chat-color) !important;
+    --channeltextarea-background: var(--text-input) !important;
+    --input-background: var(--text-input) !important;
+    --card-background-default: var(--channels-darker) !important;
+    --card-primary-bg: var(--channels-darker) !important;
+    --card-secondary-bg: var(--channels-color) !important;
+    --modal-background: var(--channels-darker) !important;
+    --modal-footer-background: var(--channels-color) !important;
+
+    /* --- Discord Brand & Accent Tokens --- */
+    --brand-experiment: var(--primary-color) !important;
+    --brand-experiment-500: var(--primary-color) !important;
+    --brand-experiment-560: var(--primary-color-active) !important;
+    --brand-experiment-600: var(--primary-color-active) !important;
+    --brand-500: var(--primary-color) !important;
+    --brand-560: var(--primary-color-active) !important;
+    --brand-600: var(--primary-color-active) !important;
+    --brand-700: #4a6607 !important;
+    --control-brand-foreground: var(--channels-text-selected) !important;
+    --control-brand-foreground-new: var(--channels-text-selected) !important;
+    --button-primary-background: var(--primary-color) !important;
+    --button-primary-background-hover: var(--primary-color-hover) !important;
+    --button-primary-background-active: var(--primary-color-active) !important;
+
+    /* --- Discord Text & Typography Tokens --- */
+    --text-normal: var(--text-color) !important;
+    --text-default: var(--text-color) !important;
+    --text-muted: var(--text-darker) !important;
+    --text-subtle: #808080 !important;
+    --text-link: var(--link-color) !important;
+    --text-positive: var(--channels-text-selected) !important;
+    --text-warning: #f8a147 !important;
+    --text-danger: var(--important-notification-l) !important;
+    --text-brand: var(--channels-text-selected) !important;
+    --header-primary: #ffffff !important;
+    --header-secondary: var(--text-darker) !important;
+    --interactive-normal: var(--text-color) !important;
+    --interactive-hover: #ffffff !important;
+    --interactive-active: #ffffff !important;
+    --interactive-muted: #555555 !important;
+    --channels-default: #9f9f9f !important;
+
+    /* --- Discord Border Tokens --- */
+    --border-subtle: var(--outline-lightcolor) !important;
+    --border-normal: var(--outline-lightcolor) !important;
+    --border-strong: #3c3c3c !important;
+    --border-muted: #222222 !important;
+
+    /* --- Discord Font Stack --- */
+    --font-primary: var(--font) !important;
+    --font-display: var(--font) !important;
+    --font-headline: var(--font) !important;
+
+    /* --- Discord Scrollbar Tokens --- */
+    --scrollbar-auto-thumb: var(--scrollbar-thumb) !important;
+    --scrollbar-auto-track: var(--scrollbar-bg) !important;
+    --scrollbar-thin-thumb: var(--scrollbar-thumb) !important;
+    --scrollbar-thin-track: transparent !important;
+}
+
+/* ====================================================================
+   2. GLOBAL TYPOGRAPHY & RESET
+   ==================================================================== */
+body,
+input,
+textarea,
+select,
+button,
+[class*="messageContent_"],
+[class*="channelName_"] {
+    font-family: var(--font) !important;
+}
+
+body {
+    background-color: var(--outline-color) !important;
+}
+
+strong {
+    font-weight: 600;
+}
+
+a {
+    color: var(--link-color);
+}
+
+/* Selection highlight */
+::selection {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+/* ====================================================================
+   3. GAMESENSE TOP GRADIENT BAR & TITLE BAR
+   ==================================================================== */
+/* The signature GameSense 3px rainbow gradient line at the top */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--title-gradient);
+    z-index: 999999;
+    pointer-events: none;
+}
+
+/* Discord Desktop Title Bar (Classic & Desktop Visual Refresh) */
+[class*="typeWindows_"],
+[class*="titleBar_"]:not([class*="subtitleContainer_"]),
+div[class*="base_"] > div[class*="bar_c38106"],
+div[class*="base_"] > div[class*="bar_"]:not([class*="sidebar"]) {
+    height: 24px !important;
+    background: var(--title-gradient) !important;
+    box-shadow: inset 0 -21px 0 0 var(--app-color), inset 0 -22px 0 0 rgba(0, 0, 0, 0.5) !important;
+    border-bottom: 1px solid var(--outline-lightcolor) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 1000;
+}
+
+/* Discord Wordmark Replacement: "game" (white) + "sense" (green) */
+[class*="wordmark_"] svg,
+[class*="wordmarkWindows_"] svg {
+    display: none !important;
+}
+
+[class*="wordmark_"],
+[class*="wordmarkWindows_"] {
+    display: flex !important;
+    align-items: center !important;
+    opacity: 1 !important;
+    height: 24px !important;
+    padding-left: 10px !important;
+    pointer-events: auto;
+}
+
+[class*="wordmark_"]::before,
+[class*="wordmarkWindows_"]::before {
+    content: 'game';
+    font-family: 'Raleway', 'Verdana', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: var(--text-color) !important;
+    display: inline-block;
+}
+
+[class*="wordmark_"]::after,
+[class*="wordmarkWindows_"]::after {
+    content: 'sense';
+    font-family: 'Raleway', 'Verdana', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: var(--primary-color) !important;
+    display: inline-block;
+}
+
+/* Visual Refresh Title Bar Wordmark Support */
+[class*="leading_"] [class*="wordmark_"]::before {
+    content: 'game';
+    font-family: 'Raleway', 'Verdana', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: var(--text-color) !important;
+}
+[class*="leading_"] [class*="wordmark_"]::after {
+    content: 'sense';
+    font-family: 'Raleway', 'Verdana', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    color: var(--primary-color) !important;
+}
+
+/* Prevent forward/back navigation buttons from overlapping wordmark */
+div[class*="base_"] > div[class*="bar_"] [class*="backForwardButtons_"] {
+    margin-left: 8px !important;
+}
+
+/* Window Minimize, Maximize, Close Buttons */
+[class*="winButton_"] {
+    height: 23px !important;
+    width: 28px !important;
+    top: 0 !important;
+    color: var(--text-darker) !important;
+    background-color: transparent !important;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+[class*="winButton_"]:hover {
+    background-color: var(--outline-lightcolor) !important;
+    color: #ffffff !important;
+}
+
+[class*="winButtonClose_"]:hover {
+    background-color: var(--important-notification) !important;
+    color: #ffffff !important;
+}
+
+/* ====================================================================
+   4. APP MOUNT & WINDOW FRAME
+   ==================================================================== */
+#app-mount,
+div[class*="appMount_"] {
+    background-color: var(--channels-color) !important;
+    box-shadow: 0 0 0 1px #3c3c3c, 0 0 0 4px #282828, 0 0 0 5px #3c3c3c, 0 0 0 6px #0a0a0a;
+}
+
+/* Visual Refresh panel un-rounding to match crisp Skeet aesthetic */
+.visual-refresh [class*="chat_"],
+.visual-refresh [class*="sidebar_"],
+.visual-refresh [class*="guilds_"],
+.visual-refresh [class*="panels_"],
+.visual-refresh [class*="members_"],
+.visual-refresh [class*="membersWrap_"],
+[class*="chatContent_"] {
+    border-radius: 0 !important;
+}
+
+/* ====================================================================
+   5. GUILDS / SERVER LIST (FAR LEFT)
+   ==================================================================== */
+nav[class*="guilds_"],
+[class*="guilds_"] {
+    background: var(--channels-darker) !important;
+    box-shadow: inset -1px 0 0 0 var(--outline-lightcolor), inset -2px 0 0 0 #000000 !important;
+}
+
+[class*="guilds_"] [class*="scroller_"] {
+    background: transparent !important;
+}
+
+/* Server Icons (Skeet style: slight rounded corner instead of circle) */
+[class*="guilds_"] [class*="blobContainer_"],
+[class*="guilds_"] foreignObject,
+[class*="guilds_"] [class*="wrapper_"][role="treeitem"],
+[class*="guilds_"] [class*="childWrapper_"],
+[class*="guilds_"] [class*="circleIconButton_"],
+[class*="guilds_"] [class*="folderIconWrapper_"] {
+    border-radius: var(--channel-radius) !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+}
+
+/* Add Server & Explore Buttons */
+[class*="circleIconButton_"] {
+    background: var(--chat-color) !important;
+    border: 1px dashed var(--outline-lightcolor) !important;
+    color: var(--text-darker) !important;
+}
+
+[class*="circleIconButton_"]:hover {
+    color: var(--channels-text-selected) !important;
+    border-color: var(--channels-text-selected) !important;
+    background: var(--channels-selected) !important;
+}
+
+/* Direct Messages / Home Button */
+[class*="tutorialContainer_"] [class*="childWrapper_"] {
+    background-color: var(--chat-color) !important;
+    color: var(--text-color) !important;
+    border-radius: var(--channel-radius) !important;
+}
+
+[class*="tutorialContainer_"] [class*="wrapper_"][class*="selected_"] [class*="childWrapper_"] {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* Active Server Left Indicator Pill */
+[class*="item_"][style*="height"] {
+    background-color: var(--primary-color) !important;
+    border-radius: 2px !important;
+}
+
+/* ====================================================================
+   6. CHANNELS SIDEBAR & USER PANEL
+   ==================================================================== */
+[class*="sidebar_"]:not([class*="standardSidebarView_"] [class*="sidebar_"]),
+[class*="sidebarList_"],
+nav[aria-label*="channel" i],
+nav[class*="container_"] {
+    background: var(--channels-color) !important;
+    border-right: 1px solid var(--outline-lightcolor) !important;
+}
+
+/* Server Header / Channel List Header */
+[class*="header_"][class*="clickable_"],
+header[class*="header_"],
+[class*="sidebar_"]:not([class*="standardSidebarView_"] [class*="sidebar_"]) [class*="header_"] {
+    background: var(--channels-darker) !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="header_"][class*="clickable_"]:hover {
+    background: var(--channels-selected) !important;
+}
+
+/* Channel Items */
+[class*="containerDefault_"] [class*="link_"] {
+    border-radius: var(--channel-radius) !important;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Unread Channel Indicator Bar */
+[class*="unread_"] {
+    background-color: var(--primary-color) !important;
+    border-radius: 2px !important;
+}
+
+/* Selected Channel Row */
+[class*="containerDefault_"][class*="selected_"] [class*="link_"],
+[class*="modeSelected_"] [class*="link_"],
+[class*="wrapper_"][class*="selected_"] [class*="link_"] {
+    background: var(--channels-selected) !important;
+}
+
+[class*="modeSelected_"] [class*="name_"],
+[class*="modeSelected_"] [class*="icon_"],
+[class*="wrapper_"][class*="selected_"] [class*="name_"],
+[class*="wrapper_"][class*="selected_"] [class*="icon_"] {
+    color: var(--channels-text-selected) !important;
+}
+
+/* Channel Hover */
+[class*="modeHovered_"] [class*="link_"]:hover,
+[class*="wrapper_"]:hover [class*="link_"] {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Mentions Badge (Pings) */
+[class*="mentionsBadge_"] [class*="numberBadge_"],
+[class*="unreadPill_"] {
+    background-color: var(--important-notification) !important;
+    color: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+/* User Account & Voice Bottom Panel */
+section[class*="panels_"],
+[class*="panels_"] {
+    background: var(--channels-darker) !important;
+    border-top: 1px solid var(--outline-lightcolor) !important;
+    border-right: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="panels_"] [class*="container_"] {
+    background: transparent !important;
+}
+
+/* ====================================================================
+   7. MAIN CHAT AREA & MESSAGES
+   ==================================================================== */
+main[class*="chatContent_"],
+div[class*="chatContent_"],
+div[class*="chat_"] {
+    background: var(--chat-color) !important;
+}
+
+/* Chat Header (Channel Title, Topic, Search) */
+section[class*="title_"],
+div[class*="subtitleContainer_"],
+[class*="chat_"] > [class*="title_"] {
+    background: var(--channels-darker) !important;
+    box-shadow: inset 0 -1px 0 var(--outline-lightcolor) !important;
+    border-bottom: 1px solid var(--outline-lightcolor) !important;
+}
+
+/* Messages Scroller */
+[class*="messagesWrapper_"],
+[class*="chatContent_"] [class*="scroller_"] {
+    background: transparent !important;
+}
+
+/* Message Hover */
+[class*="messageListItem_"]:hover,
+[class*="message_"]:hover {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Mentions in Chat */
+[class*="mentioned_"] {
+    background-color: var(--mention-color) !important;
+}
+
+[class*="mentioned_"]::before {
+    background-color: var(--primary-color) !important;
+    width: 2px !important;
+}
+
+.mention,
+[class*="wrapper_"][class*="mention"] {
+    background-color: rgba(117, 160, 13, 0.2) !important;
+    color: var(--channels-text-selected) !important;
+    border-radius: 2px !important;
+}
+
+.mention:hover,
+[class*="wrapper_"][class*="mention"]:hover {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+/* New Messages Divider */
+[class*="divider_"][class*="isUnread_"] {
+    border-color: var(--important-notification-l) !important;
+}
+
+[class*="divider_"][class*="isUnread_"] [class*="unreadPill_"] {
+    background-color: var(--important-notification) !important;
+    color: #ffffff !important;
+}
+
+[class*="divider_"] [class*="content_"] {
+    background: var(--chat-color) !important;
+}
+
+/* Embeds */
+[class*="embedFull_"] {
+    background: var(--channels-darker) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-left: 3px solid var(--primary-color) !important;
+    border-radius: 1px !important;
+}
+
+/* Code Blocks */
+pre,
+[class*="markup_"] pre {
+    background: var(--dropdown-color) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    box-shadow: 0 0 0 1px #323232, 0 0 0 2px #101010 !important;
+    border-radius: 1px !important;
+}
+
+pre code,
+[class*="codeLine_"] {
+    background: transparent !important;
+    color: var(--text-color) !important;
+    font-family: var(--font-code) !important;
+    font-size: 12px !important;
+}
+
+/* Reactions */
+[class*="reaction_"] {
+    background: var(--channels-color) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-radius: 2px !important;
+}
+
+[class*="reaction_"][class*="reactionMe_"] {
+    background: rgba(117, 160, 13, 0.15) !important;
+    border-color: var(--primary-color) !important;
+}
+
+[class*="reaction_"][class*="reactionMe_"] [class*="reactionCount_"] {
+    color: var(--channels-text-selected) !important;
+}
+
+/* Blocked Messages */
+[class*="blockedMessageText_"],
+[class*="group-blocked"] {
+    background: var(--dropdown-color) !important;
+    border-radius: 0 !important;
+}
+
+/* ====================================================================
+   8. CHAT INPUT / TEXTAREA
+   ==================================================================== */
+[class*="channelTextArea_"],
+[class*="scrollableContainer_"] {
+    background: var(--text-input) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 0 1px #323232, inset 0 0 0 2px #101010 !important;
+    border: none !important;
+}
+
+[class*="channelBottomBarArea_"] {
+    background: transparent !important;
+}
+
+[class*="channelTextArea_"] [class*="inner_"] {
+    background: transparent !important;
+    border: none !important;
+}
+
+[class*="textArea_"] {
+    font-family: var(--font) !important;
+    font-size: 12px !important;
+    color: var(--text-color) !important;
+}
+
+/* Typing indicator */
+[class*="typing_"] {
+    background: none !important;
+    font-size: 10px !important;
+}
+
+/* ====================================================================
+   9. MEMBERS LIST SIDEBAR (RIGHT)
+   ==================================================================== */
+[class*="membersWrap_"],
+[class*="members_"],
+aside[class*="membersWrap_"] {
+    background: var(--channels-darker) !important;
+    border-left: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="members_"] [class*="member_"] {
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+[class*="members_"] [class*="member_"]:hover {
+    background: var(--channels-selected) !important;
+}
+
+[class*="members_"] [class*="member_"][class*="selected_"] {
+    background: var(--channels-selected) !important;
+}
+
+/* Member Avatars: slight rounded corner */
+[class*="members_"] [class*="avatar_"] {
+    border-radius: var(--channel-radius) !important;
+}
+
+/* Voice Speaking Indicator */
+[class*="avatarSpeaking_"] {
+    box-shadow: inset 0 0 0 2px var(--channels-text-selected), inset 0 0 0 3px #000000 !important;
+}
+
+/* ====================================================================
+   10. CONTEXT MENUS, POPOUTS, MODALS & TOOLTIPS
+   ==================================================================== */
+/* Context Menus & Dropdowns */
+[class*="menu_"],
+[role="menu"],
+[class*="popout_"]:not([class*="sidebar_"]),
+[class*="contextMenu_"] {
+    background: var(--dropdown-color) !important;
+    border: 1px solid var(--outline-color) !important;
+    box-shadow: 0 0 0 1px #323232, 0 0 0 2px #0a0a0a !important;
+    border-radius: 1px !important;
+}
+
+[role="menuitem"],
+[class*="item_"][role="menuitem"] {
+    font-size: 11px !important;
+    border-radius: 0 !important;
+    color: var(--text-color) !important;
+}
+
+[role="menuitem"]:hover,
+[role="menuitem"][class*="focused_"] {
+    background: var(--outline-lightcolor) !important;
+    color: #ffffff !important;
+}
+
+[role="menuitem"][class*="focused_"][class*="colorDanger_"],
+[role="menuitem"][class*="colorDanger_"]:hover {
+    background: var(--important-notification) !important;
+    color: #ffffff !important;
+}
+
+/* User Popout (Profile Card on Click) */
+[class*="userPopout_"],
+[class*="userProfileOuter_"] {
+    background: var(--channels-darker) !important;
+    box-shadow: 0 0 0 1px #323232, 0 0 0 2px #0a0a0a !important;
+    border-radius: 1px !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="userProfileOuter_"] [class*="body_"] {
+    background: var(--channels-color) !important;
+}
+
+/* Tooltips */
+[class*="tooltip_"],
+[role="tooltip"] {
+    background: var(--channels-darker) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-radius: 1px !important;
+    color: var(--text-color) !important;
+    box-shadow: 0 0 0 1px #0a0a0a !important;
+    font-size: 11px !important;
+}
+
+/* Modals & Dialogs */
+[class*="root_"][role="dialog"],
+[class*="modal_"] {
+    background: var(--channels-darker) !important;
+    box-shadow: inset 0 0 0 1px #0a0a0a, inset 0 0 0 2px #323232, 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 1px !important;
+}
+
+[class*="footer_"][class*="footerSeparator_"] {
+    background: var(--channels-color) !important;
+    border-top: 1px solid var(--outline-lightcolor) !important;
+}
+
+/* ====================================================================
+   11. CONTROLS: BUTTONS, SLIDERS, SWITCHES & INPUTS
+   ==================================================================== */
+/* Primary Brand Buttons */
+button[class*="buttonBrand_"],
+button[class*="lookFilled_"][class*="colorBrand_"] {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+    border-radius: var(--channel-radius) !important;
+    transition: background-color 0.15s ease;
+}
+
+button[class*="buttonBrand_"]:hover,
+button[class*="lookFilled_"][class*="colorBrand_"]:hover {
+    background-color: var(--primary-color-hover) !important;
+}
+
+/* Sliders (Scoped strictly inside slider containers) */
+[class*="slider_"] [class*="bar_"] {
+    background: linear-gradient(to bottom, #343434 0%, #444444 100%) !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--outline-color) !important;
+}
+
+[class*="slider_"] [class*="barFill_"] {
+    background: linear-gradient(to bottom, #99c427 0%, #699404 100%) !important;
+}
+
+[class*="grabber_"] {
+    border-radius: 2px !important;
+    background: #ffffff !important;
+}
+
+/* Checkboxes & Switches */
+[class*="container_"][style*="background-color: rgb(88, 101, 242)"],
+[class*="container_"][class*="checked_"] {
+    background: linear-gradient(to bottom, #9cc728 0%, #7aa506 100%) !important;
+}
+
+/* Text Inputs */
+input[type="text"],
+input[type="search"],
+[class*="input_"] {
+    background: var(--text-input) !important;
+    box-shadow: inset 0 0 0 1px #323232, inset 0 0 0 2px #101010 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: var(--text-color) !important;
+}
+
+/* ====================================================================
+   12. USER & SERVER SETTINGS (FIXED & HIGH CONTRAST)
+   ==================================================================== */
+/* Settings Background Layer - Solid dark to prevent background leaking */
+[class*="standardSidebarView_"],
+[class*="layer_"]:has([class*="standardSidebarView_"]),
+div[class*="layers_"] > [class*="layer_"]:not([class*="baseLayer_"]) {
+    background-color: var(--chat-color) !important;
+}
+
+/* Left Sidebar Region */
+[class*="sidebarRegion_"],
+[class*="sidebarRegionScroller_"] {
+    background-color: var(--channels-darker) !important;
+    border-right: 1px solid var(--outline-lightcolor) !important;
+    height: 100% !important;
+}
+
+[class*="sidebarRegion_"] [class*="sidebar_"] {
+    height: auto !important;
+    padding-bottom: 40px !important;
+    width: 220px !important;
+}
+
+/* Settings Search Bar */
+[class*="sidebarRegion_"] [class*="searchBar_"] {
+    background-color: var(--text-input) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-radius: var(--channel-radius) !important;
+    box-shadow: inset 0 0 0 1px #323232, inset 0 0 0 2px #101010 !important;
+    color: var(--text-color) !important;
+    margin-bottom: 12px !important;
+}
+
+[class*="sidebarRegion_"] [class*="searchBar_"] input {
+    color: var(--text-color) !important;
+    font-size: 12px !important;
+}
+
+/* Settings Category Headers ("USER SETTINGS", "APP SETTINGS") */
+[class*="sidebarRegion_"] [class*="side_"] [class*="header_"],
+[class*="sidebarRegion_"] [class*="sidebar_"] [class*="header_"],
+[class*="sidebarRegion_"] [class*="header_"][class*="eyebrow_"] {
+    color: var(--primary-color) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 10px 6px 10px !important;
+}
+
+/* Settings Tab Items (Clear, visible text) */
+[class*="sidebarRegion_"] [class*="side_"] [class*="item_"],
+[class*="sidebarRegion_"] [class*="side_"] [role="tab"] {
+    color: var(--text-color) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 6px 10px !important;
+    margin-bottom: 2px !important;
+    border-radius: var(--channel-radius) !important;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Settings Tab Item Hover */
+[class*="sidebarRegion_"] [class*="side_"] [class*="item_"]:hover:not([class*="selected_"]),
+[class*="sidebarRegion_"] [class*="side_"] [role="tab"]:hover:not([class*="selected_"]) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+}
+
+/* Settings Tab Item Active / Selected (GameSense Green Highlight) */
+[class*="sidebarRegion_"] [class*="side_"] [class*="item_"][class*="selected_"],
+[class*="sidebarRegion_"] [class*="side_"] [role="tab"][aria-selected="true"],
+[class*="sidebarRegion_"] [class*="side_"] [class*="selected_"] {
+    background-color: var(--channels-selected) !important;
+    color: var(--channels-text-selected) !important;
+    font-weight: 600 !important;
+    border-left: 3px solid var(--primary-color) !important;
+}
+
+/* Category Separator Lines */
+[class*="sidebarRegion_"] [class*="side_"] [class*="separator_"] {
+    background-color: var(--outline-lightcolor) !important;
+    height: 1px !important;
+    margin: 8px 10px !important;
+}
+
+/* Profile Summary at Top of Settings Sidebar */
+[class*="sidebarRegion_"] [class*="userProfile_"],
+[class*="sidebarRegion_"] [class*="profileCard_"],
+[class*="sidebarRegion_"] [class*="accountProfileCard_"],
+[class*="sidebarRegion_"] [class*="userInfo_"] {
+    background-color: transparent !important;
+    color: var(--text-color) !important;
+}
+
+[class*="sidebarRegion_"] [class*="username_"],
+[class*="sidebarRegion_"] [class*="userTag_"] {
+    color: var(--text-color) !important;
+}
+
+/* Settings Right Content Area */
+[class*="contentRegion_"],
+[class*="contentRegionScroller_"] {
+    background-color: var(--chat-color) !important;
+}
+
+[class*="contentColumn_"] {
+    max-width: 740px !important;
+}
+
+/* Section Headings */
+[class*="contentRegion_"] h2,
+[class*="contentRegion_"] h3,
+[class*="contentRegion_"] [class*="sectionTitle_"] {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Settings Action Cards & Items */
+[class*="contentRegion_"] [class*="cardPrimary_"],
+[class*="contentRegion_"] [class*="cardPrimaryEditable_"],
+[class*="contentRegion_"] [class*="background_"][class*="card_"],
+[class*="contentRegion_"] [class*="fieldList_"],
+[class*="contentRegion_"] [class*="card_"]:not([class*="profileCard_"]) {
+    background-color: var(--channels-darker) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-radius: var(--channel-radius) !important;
+}
+
+/* Settings Buttons (Edit, Reveal, etc.) */
+[class*="contentRegion_"] button[class*="lookFilled_"][class*="colorPrimary_"],
+[class*="contentRegion_"] button[class*="lookLink_"] {
+    background-color: var(--dropdown-color) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    border-radius: var(--channel-radius) !important;
+}
+
+[class*="contentRegion_"] button[class*="lookFilled_"][class*="colorPrimary_"]:hover {
+    background-color: var(--outline-lightcolor) !important;
+    color: #ffffff !important;
+}
+
+/* Close ESC Button at Top Right */
+[class*="toolsContainer_"] [class*="closeButton_"],
+[class*="closeButton_"] {
+    border-color: var(--outline-lightcolor) !important;
+    background-color: var(--channels-darker) !important;
+    color: var(--text-color) !important;
+}
+
+[class*="toolsContainer_"] [class*="closeButton_"]:hover,
+[class*="closeButton_"]:hover {
+    background-color: var(--important-notification) !important;
+    border-color: var(--important-notification) !important;
+    color: #ffffff !important;
+}
+
+[class*="toolsContainer_"] [class*="keybind_"],
+[class*="keybind_"] {
+    color: var(--text-darker) !important;
+}
+
+/* ====================================================================
+   13. FRIENDS & DIRECT MESSAGES PAGE
+   ==================================================================== */
+[class*="peopleColumn_"],
+[class*="container_"][class*="peopleContainer_"] {
+    background: var(--chat-color) !important;
+}
+
+[class*="nowPlayingColumn_"] {
+    background: var(--channels-darker) !important;
+    border-left: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="peopleListItem_"]:hover {
+    background: var(--channels-selected) !important;
+    border-radius: 0 !important;
+}
+
+[class*="privateChannels_"] {
+    background: var(--channels-color) !important;
+}
+
+[class*="channel_"][class*="selected_"] [class*="layout_"] {
+    background: var(--channels-selected) !important;
+}
+
+/* ====================================================================
+   14. SEARCH & QUICK SWITCHER
+   ==================================================================== */
+[class*="quickswitcher_"] {
+    background: var(--channels-darker) !important;
+    border: 1px solid var(--outline-lightcolor) !important;
+    box-shadow: 0 0 0 1px #323232, 0 0 0 2px #0a0a0a !important;
+    border-radius: 1px !important;
+}
+
+[class*="searchResultsWrap_"] {
+    background: var(--channels-color) !important;
+    border-left: 1px solid var(--outline-lightcolor) !important;
+}
+
+[class*="searchHeader_"] {
+    background: var(--channels-darker) !important;
+    border-bottom: 1px solid var(--outline-lightcolor) !important;
+}
+
+/* ====================================================================
+   15. SCROLLBARS
+   ==================================================================== */
+::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    background: var(--scrollbar-bg) !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb) !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover) !important;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
