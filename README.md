@@ -114,14 +114,6 @@ You can easily adjust colors, fonts, or window radii by changing the CSS variabl
 
 ---
 
-## 🤝 Credits & Acknowledgments
-
-* **Original Creator:** [Shaxzy](https://github.com/Shaxzy) for designing the original [gamesense-discordtheme](https://github.com/Shaxzy/gamesense-discordtheme/).
-* **Inspiration:** The GameSense / Skeet community (`gamesense.pub`).
-* **Maintenance & Modernization:** Fixed and updated for modern Discord client versions & Desktop Visual Refresh.
-
----
-
 ## 📄 License
 
 This theme is provided free of charge for the community. Distributed under the [MIT License](LICENSE).
