@@ -2,7 +2,7 @@
  * @name GameSense Discord Theme
  * @description A theme made for the gamesense community. Updated and fixed for modern Discord updates and Visual Refresh.
  * @author Shaxzy (Updated & Fixed)
- * @version 2.0.1
+ * @version 2.0.2
  * @website https://github.com/cenah00k/discord-gamesense-theme
  * @source https://raw.githubusercontent.com/cenah00k/discord-gamesense-theme/main/gamesense.theme.css
  */
@@ -186,9 +186,9 @@ a {
 }
 
 /* ====================================================================
-   3. GAMESENSE TOP GRADIENT BAR & TITLE BAR
+   3. GAMESENSE TOP GRADIENT LINE & CLEAN TITLE BAR
    ==================================================================== */
-/* The signature GameSense 3px rainbow gradient line at the top */
+/* The signature GameSense 3px rainbow gradient line at the very top */
 body::before {
     content: '';
     position: fixed;
@@ -196,7 +196,7 @@ body::before {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--title-gradient);
+    background: var(--title-gradient) !important;
     z-index: 999999;
     pointer-events: none;
 }
@@ -206,12 +206,9 @@ body::before {
 [class*="titleBar_"]:not([class*="subtitleContainer_"]),
 div[class*="base_"] > div[class*="bar_c38106"],
 div[class*="base_"] > div[class*="bar_"]:not([class*="sidebar"]) {
-    height: 24px !important;
-    background: var(--title-gradient) !important;
-    box-shadow: inset 0 -21px 0 0 var(--app-color), inset 0 -22px 0 0 rgba(0, 0, 0, 0.5) !important;
+    background: var(--channels-darker) !important;
     border-bottom: 1px solid var(--outline-lightcolor) !important;
     margin: 0 !important;
-    padding: 0 !important;
     z-index: 1000;
 }
 
@@ -226,7 +223,6 @@ div[class*="base_"] > div[class*="bar_"]:not([class*="sidebar"]) {
     display: flex !important;
     align-items: center !important;
     opacity: 1 !important;
-    height: 24px !important;
     padding-left: 10px !important;
     pointer-events: auto;
 }
@@ -251,34 +247,16 @@ div[class*="base_"] > div[class*="bar_"]:not([class*="sidebar"]) {
     display: inline-block;
 }
 
-/* Visual Refresh Title Bar Wordmark Support */
-[class*="leading_"] [class*="wordmark_"]::before {
-    content: 'game';
-    font-family: 'Raleway', 'Verdana', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-    color: var(--text-color) !important;
-}
-[class*="leading_"] [class*="wordmark_"]::after {
-    content: 'sense';
-    font-family: 'Raleway', 'Verdana', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-    color: var(--primary-color) !important;
-}
-
-/* Prevent forward/back navigation buttons from overlapping wordmark */
-div[class*="base_"] > div[class*="bar_"] [class*="backForwardButtons_"] {
-    margin-left: 8px !important;
-}
-
 /* Window Minimize, Maximize, Close Buttons */
 [class*="winButton_"] {
-    height: 23px !important;
+    height: 100% !important;
+    min-height: 24px !important;
     width: 28px !important;
-    top: 0 !important;
     color: var(--text-darker) !important;
     background-color: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -745,7 +723,7 @@ input[type="search"],
 }
 
 /* ====================================================================
-   12. USER & SERVER SETTINGS (FIXED & HIGH CONTRAST)
+   12. USER & SERVER SETTINGS (HIGH CONTRAST & CLEAN)
    ==================================================================== */
 /* Settings Background Layer - Solid dark to prevent background leaking */
 [class*="standardSidebarView_"],
